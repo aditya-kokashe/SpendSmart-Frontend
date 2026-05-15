@@ -1,0 +1,137 @@
+/* ===== AUTH LAYOUT ===== */
+.auth-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 48px 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #34c759;
+}
+
+.auth-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.auth-card .auth-subtitle {
+  color: #a0a0a0;
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper .form-input {
+  padding-right: 46px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #a0a0a0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.password-toggle:hover,
+.password-toggle:focus {
+  color: #ffffff;
+  outline: none;
+}
+
+.auth-card .auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.auth-card .auth-footer a {
+  color: #34c759;
+  font-weight: 500;
+}
+
+.auth-card .auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.auth-card .auth-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #6c63ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.auth-logo span {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ===== FORM VALIDATION ===== */
+.input-error {
+  border-color: #ff3b30 !important;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1) !important;
+}
+
+.error-message {
+  color: #ff3b30;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}

@@ -1,0 +1,127 @@
+/* ===== PAYMENT RAZORPAY PAGE STYLES ===== */
+
+.payment-razorpay-container {
+  padding: 20px;
+}
+
+.payment-razorpay-lock-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  padding: 20px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.payment-razorpay-lock-card {
+  background: linear-gradient(145deg, #1f1f1f 0%, #151515 100%);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(108, 99, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-razorpay-lock-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.3), transparent);
+}
+
+.payment-razorpay-lock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.2) 0%, rgba(108, 99, 255, 0.05) 100%);
+  border-radius: 20px;
+  color: #FFD700;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.15);
+}
+
+.payment-razorpay-lock-card h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.payment-razorpay-lock-description {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.payment-razorpay-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.payment-razorpay-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  background: rgba(108, 99, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(108, 99, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.payment-razorpay-feature:hover {
+  background: rgba(108, 99, 255, 0.1);
+  border-color: rgba(108, 99, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.payment-razorpay-feature svg {
+  color: #6c63ff;
+  flex-shrink: 0;
+}
+
+.payment-razorpay-unlock-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #6c63ff 0%, #5a52e0 100%);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.payment-razorpay-unlock-btn:hover {
+  background: linear-gradient(135deg, #7b73ff 0%, #6a62f0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.4);
+}
+
+.payment-razorpay-unlock-btn:active {
+  transform: translateY(0);
+}
