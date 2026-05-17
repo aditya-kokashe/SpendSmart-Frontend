@@ -187,7 +187,7 @@ export default function Register() {
               type="button"
               className="btn btn-google btn-full"
               onClick={() => {
-                const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+                const apiBase = import.meta.env.VITE_API_BASE_URL;
                 window.location.href = `${apiBase}/oauth2/authorization/google`;
               }}
             >
