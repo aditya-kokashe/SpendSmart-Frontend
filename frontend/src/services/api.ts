@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
-console.log("API URL:", API_BASE);
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -12,17 +11,17 @@ api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   const email = localStorage.getItem('userEmail');
   const role = localStorage.getItem('userRole') || 'USER';
-
+  
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-
+  
   if (email) {
     config.headers['X-User-Email'] = email;
   }
-
+  
   config.headers['X-User-Role'] = role;
-
+  
   return config;
 });
 
@@ -37,18 +36,15 @@ api.interceptors.response.use(
       data: err.response?.data,
       message: err.message
     });
-
-    // Auto-logout on 401 for critical endpoints (excluding non-critical background checks)
+    
+    // Auto-logout on 401 for all endpoints
     if (err.response?.status === 401) {
-      const url = err.config?.url || '';
-      if (!url.includes('/api/payments/premium-status') && !url.includes('/api/notifications/unread-count')) {
-        console.warn('401 Unauthorized - clearing auth and redirecting to login');
-        localStorage.removeItem('token');
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userName');
-        localStorage.removeItem('userRole');
-        window.location.href = '/login';
-      }
+      console.warn('401 Unauthorized - clearing auth and redirecting to login');
+      localStorage.removeItem('token');
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userName');
+      localStorage.removeItem('userRole');
+      window.location.href = '/login';
     }
     return Promise.reject(err);
   }
@@ -114,7 +110,7 @@ export const paymentAPI = {
   create: (data: Record<string, unknown>) => api.post('/api/payment-methods', data),
   update: (id: number, data: Record<string, unknown>) => api.put(`/api/payment-methods/${id}`, data),
   delete: (id: number) => api.delete(`/api/payment-methods/${id}`),
-
+  
   //Razorpay Gateway
   createOrder: () => api.post('/api/payments/create-order'),
   verifyPayment: (data: { razorpayOrderId: string; razorpayPaymentId: string; razorpaySignature: string }) =>
@@ -152,12 +148,12 @@ export const adminAPI = {
     }
   }),
   deleteUser: (id: number) => api.delete(`/api/admin/users/${id}`),
-
+  
   // Category Management
   getAllCategories: () => api.get('/api/admin/categories'),
   getUserCategories: (userEmail: string) => api.get(`/api/admin/categories/user/${userEmail}`),
   deleteAnyCategory: (id: number) => api.delete(`/api/admin/categories/${id}`),
-
+  
   //Dashboard Analytics
   getDashboardStats: () => api.get('/api/admin/dashboard'),
 };
